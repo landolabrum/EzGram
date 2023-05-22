@@ -6,7 +6,7 @@ class EzGram:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.ez = None
+        self.api = None
     
     @property
     def user(self):
