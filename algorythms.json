@@ -1,0 +1,42 @@
+{
+  "user": {
+    "posts": {
+      "video": {
+        "max_length_seconds": 3600,
+        "min_length_seconds": 60,
+        "type": "MP4 with H.264 codec and AAC audio"
+      },
+      "photo": {
+        "max_resolution": "1080x1080",
+        "supported_formats": ["JPEG", "PNG"],
+        "max_file_size_bytes": 15728640
+      },
+      "story": {
+        "max_duration_seconds": 15,
+        "supported_formats": ["JPEG", "PNG"],
+        "max_file_size_bytes": 15728640
+      }
+    },
+    "followers": true,
+    "following": true,
+    "profile_info": true,
+    "direct_messages": true,
+    "saved_media": true
+  },
+  "explore": {
+    "top_posts": true,
+    "trending_tags": true,
+    "recommended_profiles": true
+  },
+  "search": {
+    "users": true,
+    "hashtags": true,
+    "locations": true
+  },
+  "notifications": true,
+  "likes": true,
+  "comments": true,
+  "hashtags": true,
+  "mentions": true,
+  "verification": true
+}
