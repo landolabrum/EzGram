@@ -44,10 +44,24 @@ class Media:
         except ClientError as e:
             print(f"Error: {e}")
     
-    def get_extra_data(self, media_id):
+    def get_user_tags(self, media_id):
         try:
-            extra_data = self.api.media_extra_info(media_id)
-            return extra_data
+            user_tags = self.api.media_user_tags(media_id)
+            return user_tags
+        except ClientError as e:
+            print(f"Error: {e}")
+    
+    def get_location(self, media_id):
+        try:
+            location = self.api.media_location(media_id)
+            return location
+        except ClientError as e:
+            print(f"Error: {e}")
+    
+    def get_user_clips(self, user_id):
+        try:
+            clips = self.api.user_clips_v1(user_id)
+            return clips
         except ClientError as e:
             print(f"Error: {e}")
 
@@ -73,8 +87,14 @@ class ViewingAndEditingPublication(Media):
     def unlike_media(self, media_id):
         super().unlike_media(media_id)
     
-    def get_extra_data(self, media_id):
-        return super().get_extra_data(media_id)
+    def get_user_tags(self, media_id):
+        return super().get_user_tags(media_id)
+    
+    def get_location(self, media_id):
+        return super().get_location(media_id)
+    
+    def get_user_clips(self, user_id):
+        return super().get_user_clips(user_id)
 
 class DownloadMedia(Media):
     def __init__(self, api):
@@ -87,8 +107,14 @@ class DownloadMedia(Media):
         except ClientError as e:
             print(f"Error: {e}")
     
-    def get_extra_data(self, media_id):
-        return super().get_extra_data(media_id)
+    def get_user_tags(self, media_id):
+        return super().get_user_tags(media_id)
+    
+    def get_location(self, media_id):
+        return super().get_location(media_id)
+    
+    def get_user_clips(self, user_id):
+        return super().get_user_clips(user_id)
 
 class UploadMedia(Media):
     def __init__(self, api):
