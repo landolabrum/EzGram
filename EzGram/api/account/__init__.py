@@ -1,16 +1,12 @@
 # EzGram/api/account/__init__.py
 
-
-
-
-import json
 import email
 import imaplib
 import re
 import random
 from instagrapi.mixins.challenge import ChallengeChoice
 from instagrapi.exceptions import LoginRequired
-
+from EzGram.api.account.get_account import GetAccount
 class Account:
     def __init__(self, uri):
         self.client = uri.client
@@ -27,19 +23,10 @@ class Account:
         password = "".join(random.sample(chars, 10))
         return password
 
-    def login_response(self):
-        account = self.client.account_info().__dict__
-        account['password']=self.password
-        thread_dicts = ""
-        for thread in self.client.direct_threads():
-            print(thread)
-        return {
-            "settings": self.client.get_settings(),
-            "notifications": self.client.news_inbox_v1(),
-            "inbox": thread_dicts, 
-              # Updated
-            "account": account
-        }
+
+    def login_info(self):
+        return GetAccount.login_info(self)
+
     
 
     def get_code_from_email(self):

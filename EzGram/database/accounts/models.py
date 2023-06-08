@@ -86,6 +86,13 @@ def get_account_models(Base):
         mid = Column(String)
         ig_u_rur = Column(String)
         ig_www_claim = Column(String)
+        cookies = Column(JSON)
+        last_login = Column(Integer)
+        user_agent = Column(String)
+        country = Column(String(3))
+        country_code = Column(Integer)
+        locale = Column(String(6))
+        timezone_offset = Column(Integer)
         # add other fields...
 
         uuids = relationship('UuidsModel', uselist=False,
